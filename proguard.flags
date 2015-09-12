@@ -1,0 +1,3 @@
+-keep class com.ksrt12.updater.UpdatesSettings {
+  *;
+}
