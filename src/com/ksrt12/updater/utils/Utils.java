@@ -59,7 +59,7 @@ public class Utils {
     }
 
     public static String getInstalledVersion() {
-        return SystemProperties.get("ro.slim.version");
+        return SystemProperties.get("ro.modversion");
     }
 
     public static int getInstalledApiLevel() {
