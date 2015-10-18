@@ -8,6 +8,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- CMUpdate Config Strings -->
-    <string name="conf_update_server_url_def" translatable="false">https://raw.githubusercontent.com/SlimLP-U8950/SlimAPI/master/API</string>
+    <string name="conf_update_server_url_def" translatable="false">https://raw.githubusercontent.com/U8950-Projects/API_Updater
+/slimlp/API</string>
     <string name="conf_changelog_url" translatable="false">http://localhost/changelog.xml</string>
 </resources>

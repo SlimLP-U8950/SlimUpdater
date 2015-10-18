@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.service;
+package com.slimlp.updater.service;
 
 import android.app.DownloadManager;
 import android.app.IntentService;
@@ -25,13 +25,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.UpdateApplication;
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.misc.UpdateInfo;
-import com.ksrt12.updater.receiver.DownloadReceiver;
-import com.ksrt12.updater.requests.UpdatesJsonObjectRequest;
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.R;
+import com.slimlp.updater.UpdateApplication;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.misc.UpdateInfo;
+import com.slimlp.updater.receiver.DownloadReceiver;
+import com.slimlp.updater.requests.UpdatesJsonObjectRequest;
+import com.slimlp.updater.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,7 +86,7 @@ public class DownloadService extends IntentService
     }
 
     private String getServerUri() {
-        String propertyUri = SystemProperties.get("cm.updater.uri");
+        String propertyUri = SystemProperties.get("slim.updater.uri");
         if (!TextUtils.isEmpty(propertyUri)) {
             return propertyUri;
         }

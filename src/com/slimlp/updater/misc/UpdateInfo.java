@@ -7,14 +7,14 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.misc;
+package com.slimlp.updater.misc;
 
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.utils.Utils;
 
 import java.io.File;
 import java.io.Serializable;

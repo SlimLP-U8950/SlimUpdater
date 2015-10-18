@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.misc;
+package com.slimlp.updater.misc;
 
 import android.content.Context;
 import android.util.Log;
@@ -23,7 +23,7 @@ import java.util.LinkedList;
 
 public class State {
     private static final String TAG = "State";
-    private static final String FILENAME = "cmupdater.state";
+    private static final String FILENAME = "slimupdater.state";
 
     public static void saveState(Context context, LinkedList<UpdateInfo> availableUpdates) {
         ObjectOutputStream oos = null;

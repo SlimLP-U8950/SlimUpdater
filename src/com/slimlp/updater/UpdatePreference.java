@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater;
+package com.slimlp.updater;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,8 +25,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ksrt12.updater.misc.FetchChangeLogTask;
-import com.ksrt12.updater.misc.UpdateInfo;
+import com.slimlp.updater.misc.FetchChangeLogTask;
+import com.slimlp.updater.misc.UpdateInfo;
 
 import java.io.File;
 

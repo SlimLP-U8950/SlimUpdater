@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.service;
+package com.slimlp.updater.service;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
@@ -27,15 +27,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.UpdateApplication;
-import com.ksrt12.updater.requests.UpdatesJsonObjectRequest;
-import com.ksrt12.updater.UpdatesSettings;
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.misc.State;
-import com.ksrt12.updater.misc.UpdateInfo;
-import com.ksrt12.updater.receiver.DownloadReceiver;
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.R;
+import com.slimlp.updater.UpdateApplication;
+import com.slimlp.updater.requests.UpdatesJsonObjectRequest;
+import com.slimlp.updater.UpdatesSettings;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.misc.State;
+import com.slimlp.updater.misc.UpdateInfo;
+import com.slimlp.updater.receiver.DownloadReceiver;
+import com.slimlp.updater.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,11 +57,11 @@ public class UpdateCheckService extends IntentService
     private static final boolean TESTING_DOWNLOAD = false;
 
     // request actions
-    public static final String ACTION_CHECK = "com.ksrt12.slimupdater.action.CHECK";
-    public static final String ACTION_CANCEL_CHECK = "com.ksrt12.slimupdater.action.CANCEL_CHECK";
+    public static final String ACTION_CHECK = "com.slimlp.slimupdater.action.CHECK";
+    public static final String ACTION_CANCEL_CHECK = "com.slimlp.slimupdater.action.CANCEL_CHECK";
 
     // broadcast actions
-    public static final String ACTION_CHECK_FINISHED = "com.ksrt12.slimupdater.action.UPDATE_CHECK_FINISHED";
+    public static final String ACTION_CHECK_FINISHED = "com.slimlp.slimupdater.action.UPDATE_CHECK_FINISHED";
     // extra for ACTION_CHECK_FINISHED: total amount of found updates
     public static final String EXTRA_UPDATE_COUNT = "update_count";
     // extra for ACTION_CHECK_FINISHED: amount of updates that are newer than what is installed
@@ -143,6 +143,7 @@ public class UpdateCheckService extends IntentService
                     .setContentTitle(res.getString(R.string.not_new_updates_found_title))
                     .setContentText(text)
                     .setContentIntent(contentIntent)
+                    .setLocalOnly(true)
                     .setAutoCancel(true);
 
             LinkedList<UpdateInfo> realUpdates = new LinkedList<UpdateInfo>();
@@ -191,16 +192,6 @@ public class UpdateCheckService extends IntentService
 
                 builder.addAction(R.drawable.ic_tab_download,
                         res.getString(R.string.not_action_download), downloadIntent);
-
-                // Wearable download action
-                NotificationCompat.WearableExtender extender
-                        = new NotificationCompat.WearableExtender();
-                NotificationCompat.Action wearAction = new NotificationCompat.Action.Builder(
-                        R.drawable.ic_action_download,
-                        res.getString(R.string.not_action_download), downloadIntent)
-                        .build();
-                extender.addAction(wearAction);
-                builder.extend(extender);;
             }
 
             // Trigger the notification
@@ -212,7 +203,7 @@ public class UpdateCheckService extends IntentService
     }
 
     private URI getServerURI() {
-        String propertyUpdateUri = SystemProperties.get("cm.updater.uri");
+        String propertyUpdateUri = SystemProperties.get("slim.updater.uri");
         if (!TextUtils.isEmpty(propertyUpdateUri)) {
             return URI.create(propertyUpdateUri);
         }

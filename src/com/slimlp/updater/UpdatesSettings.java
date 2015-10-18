@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater;
+package com.slimlp.updater;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -45,13 +45,13 @@ import android.widget.Toast;
 
 import com.android.internal.util.slim.ScreenType;
 
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.misc.State;
-import com.ksrt12.updater.misc.UpdateInfo;
-import com.ksrt12.updater.receiver.DownloadReceiver;
-import com.ksrt12.updater.service.UpdateCheckService;
-import com.ksrt12.updater.utils.UpdateFilter;
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.misc.State;
+import com.slimlp.updater.misc.UpdateInfo;
+import com.slimlp.updater.receiver.DownloadReceiver;
+import com.slimlp.updater.service.UpdateCheckService;
+import com.slimlp.updater.utils.UpdateFilter;
+import com.slimlp.updater.utils.Utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -160,7 +160,9 @@ public class UpdatesSettings extends PreferenceActivity implements
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
         if (!Utils.hasLeanback(this)) {
             final ActionBar bar = getActionBar();
-            bar.setDisplayHomeAsUpEnabled(true);
+            if (bar != null) {
+                bar.setDisplayHomeAsUpEnabled(true);
+            }
 
             // Turn on the Options Menu
             invalidateOptionsMenu();
@@ -623,7 +625,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         mUpdatesList.removeAll();
 
         // Convert the installed version name to the associated filename
-        String installedZip = Utils.getInstalledVersion() + ".zip";
+        String installedZip = "" + Utils.getInstalledVersion() + ".zip";
 
         // Determine installed incremental
         String installedIncremental = Utils.getIncremental();
@@ -777,15 +779,15 @@ public class UpdatesSettings extends PreferenceActivity implements
         String date = DateFormat.getLongDateFormat(this).format(lastCheck);
         String time = DateFormat.getTimeFormat(this).format(lastCheck);
 
-        String cmReleaseType = Constants.CM_RELEASETYPE_NIGHTLY;
+        String slimReleaseType = Constants.SLIM_RELEASETYPE_NIGHTLY;
         int updateType = Utils.getUpdateType();
         if (updateType == Constants.UPDATE_TYPE_SNAPSHOT) {
-            cmReleaseType = Constants.CM_RELEASETYPE_SNAPSHOT;
+            slimReleaseType = Constants.SLIM_RELEASETYPE_SNAPSHOT;
         }
 
         String message = getString(R.string.sysinfo_device) + " " + Utils.getDeviceType() + "\n\n"
                 + getString(R.string.sysinfo_running) + " " + Utils.getInstalledVersion() + "\n\n"
-                + getString(R.string.sysinfo_update_channel) + " " + cmReleaseType + "\n\n"
+                + getString(R.string.sysinfo_update_channel) + " " + slimReleaseType + "\n\n"
                 + getString(R.string.sysinfo_last_check) + " " + date + " " + time;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)

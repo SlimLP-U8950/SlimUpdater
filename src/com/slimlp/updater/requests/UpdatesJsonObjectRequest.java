@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.requests;
+package com.slimlp.updater.requests;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;

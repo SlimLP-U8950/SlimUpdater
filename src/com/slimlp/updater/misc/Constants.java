@@ -7,11 +7,11 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.misc;
+package com.slimlp.updater.misc;
 
 public class Constants {
     // Download related
-    public static final String UPDATES_FOLDER = "cmupdater";
+    public static final String UPDATES_FOLDER = "slimupdater";
     public static final String DOWNLOAD_ID = "download_id";
     public static final String DOWNLOAD_MD5 = "download_md5";
     public static final String DOWNLOAD_INCREMENTAL_FOR = "download_incremental_for";
@@ -36,8 +36,8 @@ public class Constants {
     public static final int UPDATE_TYPE_SNAPSHOT = 0;
     public static final int UPDATE_TYPE_NIGHTLY = 1;
 
-    // ro.cm.releasetype values
-    public static final String PROPERTY_CM_RELEASETYPE = "ro.slim.releasetype";
-    public static final String CM_RELEASETYPE_SNAPSHOT = "SNAPSHOT";
-    public static final String CM_RELEASETYPE_NIGHTLY = "NIGHTLY";
+    // ro.slim.releasetype values
+    public static final String PROPERTY_SLIM_RELEASETYPE = "ro.slim.releasetype";
+    public static final String SLIM_RELEASETYPE_SNAPSHOT = "SNAPSHOT";
+    public static final String SLIM_RELEASETYPE_NIGHTLY = "NIGHTLY";
 }

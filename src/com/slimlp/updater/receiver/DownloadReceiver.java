@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.receiver;
+package com.slimlp.updater.receiver;
 
 import android.app.DownloadManager;
 import android.app.StatusBarManager;
@@ -19,24 +19,24 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.misc.UpdateInfo;
-import com.ksrt12.updater.service.DownloadCompleteIntentService;
-import com.ksrt12.updater.service.DownloadService;
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.R;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.misc.UpdateInfo;
+import com.slimlp.updater.service.DownloadCompleteIntentService;
+import com.slimlp.updater.service.DownloadService;
+import com.slimlp.updater.utils.Utils;
 
 import java.io.IOException;
 
 public class DownloadReceiver extends BroadcastReceiver{
     private static final String TAG = "DownloadReceiver";
 
-    public static final String ACTION_START_DOWNLOAD = "com.ksrt12.slimupdater.action.START_DOWNLOAD";
+    public static final String ACTION_START_DOWNLOAD = "com.slimlp.slimupdater.action.START_DOWNLOAD";
     public static final String EXTRA_UPDATE_INFO = "update_info";
 
-    public static final String ACTION_DOWNLOAD_STARTED = "com.ksrt12.slimupdater.action.DOWNLOAD_STARTED";
+    public static final String ACTION_DOWNLOAD_STARTED = "com.slimlp.slimupdater.action.DOWNLOAD_STARTED";
 
-    static final String ACTION_INSTALL_UPDATE = "com.ksrt12.slimupdater.action.INSTALL_UPDATE";
+    static final String ACTION_INSTALL_UPDATE = "com.slimlp.slimupdater.action.INSTALL_UPDATE";
     static final String EXTRA_FILENAME = "filename";
 
     @Override

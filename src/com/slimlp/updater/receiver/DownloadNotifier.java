@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.receiver;
+package com.slimlp.updater.receiver;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -15,8 +15,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.misc.UpdateInfo;
+import com.slimlp.updater.R;
+import com.slimlp.updater.misc.UpdateInfo;
 
 import java.io.File;
 
@@ -41,18 +41,8 @@ public class DownloadNotifier {
                 .setTicker(context.getString(R.string.not_download_success))
                 .setStyle(style)
                 .addAction(R.drawable.ic_tab_install,
-                context.getString(R.string.not_action_install_update),
-                createInstallPendingIntent(context, updateFile));
-
-        // Wearable install action
-        NotificationCompat.WearableExtender extender = new NotificationCompat.WearableExtender();
-        NotificationCompat.Action wearInstallAction = new NotificationCompat.Action.Builder(
-                R.drawable.ic_system_update,
-                context.getString(R.string.not_action_install_update),
-                createInstallPendingIntent(context, updateFile))
-                .build();
-        extender.addAction(wearInstallAction);
-        builder.extend(extender);
+                        context.getString(R.string.not_action_install_update),
+                        createInstallPendingIntent(context, updateFile));
 
         ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
                 .notify(R.string.not_download_success, builder.build());
@@ -78,6 +68,7 @@ public class DownloadNotifier {
         return new NotificationCompat.Builder(context)
                 .setWhen(System.currentTimeMillis())
                 .setContentIntent(contentIntent)
+                .setLocalOnly(true)
                 .setAutoCancel(true);
     }
 

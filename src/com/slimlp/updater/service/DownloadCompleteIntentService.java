@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.service;
+package com.slimlp.updater.service;
 
 import android.app.DownloadManager;
 import android.app.IntentService;
@@ -15,12 +15,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.UpdateApplication;
-import com.ksrt12.updater.UpdatesSettings;
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.receiver.DownloadNotifier;
-import com.ksrt12.updater.utils.MD5;
+import com.slimlp.updater.R;
+import com.slimlp.updater.UpdateApplication;
+import com.slimlp.updater.UpdatesSettings;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.receiver.DownloadNotifier;
+import com.slimlp.updater.utils.MD5;
 
 import java.io.File;
 

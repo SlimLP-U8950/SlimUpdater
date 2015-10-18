@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.utils;
+package com.slimlp.updater.utils;
 
 import android.app.AlarmManager;
 import android.app.NotificationManager;
@@ -29,9 +29,9 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.service.UpdateCheckService;
+import com.slimlp.updater.R;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.service.UpdateCheckService;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,8 +85,8 @@ public class Utils {
     }
 
     public static boolean isOnline(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        ConnectivityManager slim = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = slim.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
             return true;
         }
@@ -154,13 +154,13 @@ public class Utils {
     public static int getUpdateType() {
         int updateType = Constants.UPDATE_TYPE_NIGHTLY;
         try {
-            String cmReleaseType = SystemProperties.get(
-                    Constants.PROPERTY_CM_RELEASETYPE);
+            String slimReleaseType = SystemProperties.get(
+                    Constants.PROPERTY_SLIM_RELEASETYPE);
 
             // Treat anything that is not SNAPSHOT as NIGHTLY
-            if (!cmReleaseType.isEmpty()) {
-                if (TextUtils.equals(cmReleaseType,
-                        Constants.CM_RELEASETYPE_SNAPSHOT)) {
+            if (!slimReleaseType.isEmpty()) {
+                if (TextUtils.equals(slimReleaseType,
+                        Constants.SLIM_RELEASETYPE_SNAPSHOT)) {
                     updateType = Constants.UPDATE_TYPE_SNAPSHOT;
                 }
             }

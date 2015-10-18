@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.utils;
+package com.slimlp.updater.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

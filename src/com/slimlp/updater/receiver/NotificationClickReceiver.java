@@ -7,13 +7,13 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.receiver;
+package com.slimlp.updater.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.ksrt12.updater.UpdatesSettings;
+import com.slimlp.updater.UpdatesSettings;
 
 public class NotificationClickReceiver extends BroadcastReceiver{
     @Override

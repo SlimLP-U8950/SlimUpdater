@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.receiver;
+package com.slimlp.updater.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,9 +17,9 @@ import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.ksrt12.updater.misc.Constants;
-import com.ksrt12.updater.service.UpdateCheckService;
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.misc.Constants;
+import com.slimlp.updater.service.UpdateCheckService;
+import com.slimlp.updater.utils.Utils;
 
 public class UpdateCheckReceiver extends BroadcastReceiver {
     private static final String TAG = "UpdateCheckReceiver";

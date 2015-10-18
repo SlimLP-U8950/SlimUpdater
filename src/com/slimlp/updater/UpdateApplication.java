@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater;
+package com.slimlp.updater;
 
 import android.app.Activity;
 import android.app.Application;

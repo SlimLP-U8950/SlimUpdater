@@ -7,7 +7,7 @@
  * or at https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-package com.ksrt12.updater.misc;
+package com.slimlp.updater.misc;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -26,11 +26,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 
 import com.android.volley.toolbox.RequestFuture;
-import com.ksrt12.updater.R;
-import com.ksrt12.updater.NotifyingWebView;
-import com.ksrt12.updater.UpdateApplication;
-import com.ksrt12.updater.requests.ChangeLogRequest;
-import com.ksrt12.updater.utils.Utils;
+import com.slimlp.updater.R;
+import com.slimlp.updater.NotifyingWebView;
+import com.slimlp.updater.UpdateApplication;
+import com.slimlp.updater.requests.ChangeLogRequest;
+import com.slimlp.updater.utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
