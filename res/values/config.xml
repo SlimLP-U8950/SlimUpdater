@@ -7,7 +7,7 @@
      or at https://www.gnu.org/licenses/gpl-2.0.txt
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- SlimLPUpdate Config Strings -->
-    <string name="conf_update_server_url_def" translatable="false">https://raw.githubusercontent.com/U8950-Projects/API_Updater/slimlp5.1/API</string>
+    <!-- CMUpdate Config Strings -->
+    <string name="conf_update_server_url_def" translatable="false">https://raw.githubusercontent.com/U8950-Projects/API_Updater/slimlp5.0/API</string>
     <string name="conf_changelog_url" translatable="false">http://localhost/changelog.xml</string>
 </resources>

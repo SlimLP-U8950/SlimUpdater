@@ -38,20 +38,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".UpdatesSettingsTv"
-            android:theme="@style/Theme.Tv"
-            android:launchMode="singleTop"
-            android:hardwareAccelerated="true"
-            android:label="@string/display_name"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
-
         <service android:name="com.slimlp.updater.service.UpdateCheckService" />
         <service android:name="com.slimlp.updater.service.DownloadService" />
         <service android:name="com.slimlp.updater.service.DownloadCompleteIntentService" />
@@ -65,7 +51,7 @@
         <receiver android:name="com.slimlp.updater.receiver.DownloadReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-                <action android:name="com.slimlp.slimupdater.action.START_DOWNLOAD"/>
+                <action android:name="com.slimlp.updater.action.START_DOWNLOAD"/>
             </intent-filter>
         </receiver>
 

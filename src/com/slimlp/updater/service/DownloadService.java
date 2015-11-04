@@ -86,7 +86,7 @@ public class DownloadService extends IntentService
     }
 
     private String getServerUri() {
-        String propertyUri = SystemProperties.get("slim.updater.uri");
+        String propertyUri = SystemProperties.get("cm.updater.uri");
         if (!TextUtils.isEmpty(propertyUri)) {
             return propertyUri;
         }
@@ -95,7 +95,7 @@ public class DownloadService extends IntentService
     }
 
     private UpdatesJsonObjectRequest buildRequest(String sourceIncremental) {
-        URI requestUri = URI.create(getServerUri());
+        URI requestUri = URI.create(getServerUri() + "/v1/build/get_delta");
         UpdatesJsonObjectRequest request;
 
         // Set request body

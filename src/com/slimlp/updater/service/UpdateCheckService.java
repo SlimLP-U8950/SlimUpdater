@@ -10,6 +10,7 @@
 package com.slimlp.updater.service;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -18,7 +19,6 @@ import android.content.res.Resources;
 import android.os.Parcelable;
 import android.os.SystemProperties;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -57,11 +57,11 @@ public class UpdateCheckService extends IntentService
     private static final boolean TESTING_DOWNLOAD = false;
 
     // request actions
-    public static final String ACTION_CHECK = "com.slimlp.slimupdater.action.CHECK";
-    public static final String ACTION_CANCEL_CHECK = "com.slimlp.slimupdater.action.CANCEL_CHECK";
+    public static final String ACTION_CHECK = "com.slimlp.updater.action.CHECK";
+    public static final String ACTION_CANCEL_CHECK = "com.slimlp.updater.action.CANCEL_CHECK";
 
     // broadcast actions
-    public static final String ACTION_CHECK_FINISHED = "com.slimlp.slimupdater.action.UPDATE_CHECK_FINISHED";
+    public static final String ACTION_CHECK_FINISHED = "com.slimlp.updater.action.UPDATE_CHECK_FINISHED";
     // extra for ACTION_CHECK_FINISHED: total amount of found updates
     public static final String EXTRA_UPDATE_COUNT = "update_count";
     // extra for ACTION_CHECK_FINISHED: amount of updates that are newer than what is installed
@@ -136,14 +136,13 @@ public class UpdateCheckService extends IntentService
                     realUpdateCount, realUpdateCount);
 
             // Get the notification ready
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+            Notification.Builder builder = new Notification.Builder(this)
                     .setSmallIcon(R.drawable.ic_system_update)
                     .setWhen(System.currentTimeMillis())
                     .setTicker(res.getString(R.string.not_new_updates_found_ticker))
                     .setContentTitle(res.getString(R.string.not_new_updates_found_title))
                     .setContentText(text)
                     .setContentIntent(contentIntent)
-                    .setLocalOnly(true)
                     .setAutoCancel(true);
 
             LinkedList<UpdateInfo> realUpdates = new LinkedList<UpdateInfo>();
@@ -166,7 +165,7 @@ public class UpdateCheckService extends IntentService
                 }
             });
 
-            NotificationCompat.InboxStyle inbox = new NotificationCompat.InboxStyle(builder)
+            Notification.InboxStyle inbox = new Notification.InboxStyle(builder)
                     .setBigContentTitle(text);
             int added = 0, count = realUpdates.size();
 
@@ -203,7 +202,7 @@ public class UpdateCheckService extends IntentService
     }
 
     private URI getServerURI() {
-        String propertyUpdateUri = SystemProperties.get("slim.updater.uri");
+        String propertyUpdateUri = SystemProperties.get("cm.updater.uri");
         if (!TextUtils.isEmpty(propertyUpdateUri)) {
             return URI.create(propertyUpdateUri);
         }

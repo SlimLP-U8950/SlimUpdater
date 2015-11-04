@@ -33,7 +33,6 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
@@ -70,9 +69,6 @@ public class UpdatesSettings extends PreferenceActivity implements
     public static final String EXTRA_FINISHED_DOWNLOAD_ID = "download_id";
     public static final String EXTRA_FINISHED_DOWNLOAD_PATH = "download_path";
     public static final String EXTRA_FINISHED_DOWNLOAD_INCREMENTAL_FOR = "download_incremental_for";
-
-    public static final String KEY_SYSTEM_INFO = "system_info";
-    private static final String KEY_DELETE_ALL = "delete_all";
 
     private static final String UPDATES_CATEGORY = "updates_category";
 
@@ -132,11 +128,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         mDownloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
 
         // Load the layouts
-        if (!Utils.hasLeanback(this)) {
-            addPreferencesFromResource(R.xml.main);
-        } else {
-            addPreferencesFromResource(R.xml.main_tv);
-        }
+        addPreferencesFromResource(R.xml.main);
         mUpdatesList = (PreferenceCategory) findPreference(UPDATES_CATEGORY);
         mUpdateCheck = (ListPreference) findPreference(Constants.UPDATE_CHECK_PREF);
 
@@ -158,25 +150,11 @@ public class UpdatesSettings extends PreferenceActivity implements
         }
 
         // Set 'HomeAsUp' feature of the actionbar to fit better into Settings
-        if (!Utils.hasLeanback(this)) {
-            final ActionBar bar = getActionBar();
-            if (bar != null) {
-                bar.setDisplayHomeAsUpEnabled(true);
-            }
+        final ActionBar bar = getActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
 
-            // Turn on the Options Menu
-            invalidateOptionsMenu();
-        }
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == findPreference(KEY_SYSTEM_INFO)) {
-            checkForUpdates();
-        } else if (preference == findPreference(KEY_DELETE_ALL)) {
-            confirmDeleteAll();
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        // Turn on the Options Menu
+        invalidateOptionsMenu();
     }
 
     @Override
@@ -625,7 +603,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         mUpdatesList.removeAll();
 
         // Convert the installed version name to the associated filename
-        String installedZip = "" + Utils.getInstalledVersion() + ".zip";
+        String installedZip = "cm-" + Utils.getInstalledVersion() + ".zip";
 
         // Determine installed incremental
         String installedIncremental = Utils.getIncremental();
@@ -689,11 +667,7 @@ public class UpdatesSettings extends PreferenceActivity implements
         if (mUpdatesList.getPreferenceCount() == 0) {
             Preference pref = new Preference(this);
             pref.setLayoutResource(R.layout.preference_empty_list);
-            if (!Utils.hasLeanback(this)) {
-                pref.setTitle(R.string.no_available_updates_intro);
-            } else {
-                pref.setTitle(R.string.no_available_updates_intro_tv);
-            }
+            pref.setTitle(R.string.no_available_updates_intro);
             pref.setEnabled(false);
             mUpdatesList.addPreference(pref);
         }
@@ -787,7 +761,7 @@ public class UpdatesSettings extends PreferenceActivity implements
 
         String message = getString(R.string.sysinfo_device) + " " + Utils.getDeviceType() + "\n\n"
                 + getString(R.string.sysinfo_running) + " " + Utils.getInstalledVersion() + "\n\n"
-                + getString(R.string.sysinfo_update_channel) + " " + slimReleaseType + "\n\n"
+                + getString(R.string.sysinfo_update_channel) + " " + cmReleaseType + "\n\n"
                 + getString(R.string.sysinfo_last_check) + " " + date + " " + time;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)

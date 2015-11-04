@@ -59,7 +59,7 @@ public class Utils {
     }
 
     public static String getInstalledVersion() {
-        return SystemProperties.get("ro.modversion");
+        return SystemProperties.get("ro.slim.version");
     }
 
     public static int getInstalledApiLevel() {
@@ -85,8 +85,8 @@ public class Utils {
     }
 
     public static boolean isOnline(Context context) {
-        ConnectivityManager slim = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = slim.getActiveNetworkInfo();
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
             return true;
         }
@@ -155,7 +155,7 @@ public class Utils {
         int updateType = Constants.UPDATE_TYPE_NIGHTLY;
         try {
             String slimReleaseType = SystemProperties.get(
-                    Constants.PROPERTY_SLIM_RELEASETYPE);
+                    Constants.PROPERTY_CM_RELEASETYPE);
 
             // Treat anything that is not SNAPSHOT as NIGHTLY
             if (!slimReleaseType.isEmpty()) {
@@ -168,10 +168,5 @@ public class Utils {
         }
 
         return updateType;
-    }
-
-    public static boolean hasLeanback(Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK);
     }
 }

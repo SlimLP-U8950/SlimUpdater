@@ -31,12 +31,12 @@ import java.io.IOException;
 public class DownloadReceiver extends BroadcastReceiver{
     private static final String TAG = "DownloadReceiver";
 
-    public static final String ACTION_START_DOWNLOAD = "com.slimlp.slimupdater.action.START_DOWNLOAD";
+    public static final String ACTION_START_DOWNLOAD = "com.slimlp.updater.action.START_DOWNLOAD";
     public static final String EXTRA_UPDATE_INFO = "update_info";
 
-    public static final String ACTION_DOWNLOAD_STARTED = "com.slimlp.slimupdater.action.DOWNLOAD_STARTED";
+    public static final String ACTION_DOWNLOAD_STARTED = "com.slimlp.updater.action.DOWNLOAD_STARTED";
 
-    static final String ACTION_INSTALL_UPDATE = "com.slimlp.slimupdater.action.INSTALL_UPDATE";
+    static final String ACTION_INSTALL_UPDATE = "com.slimlp.updater.action.INSTALL_UPDATE";
     static final String EXTRA_FILENAME = "filename";
 
     @Override
