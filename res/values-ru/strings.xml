@@ -20,7 +20,7 @@
   <string name="dialog_update">Обновить</string>
   <string name="dialog_close">Закрыть</string>
   <string name="available_updates_title">Доступные обновления</string>
-  <string name="no_available_updates_intro">Установлена последняя версия CyanogenMod. Нажмите кнопку «Проверить», чтобы выполнить поиск доступных обновлений.</string>
+  <string name="no_available_updates_intro">Установлена последняя версия SlimLP. Нажмите кнопку «Проверить», чтобы выполнить поиск доступных обновлений.</string>
   <string name="new_update_summary">Новое</string>
   <string name="downloaded_update_summary">Загружено</string>
   <string name="installed_update_summary">Установлено</string>
@@ -36,7 +36,7 @@
   <string name="no_updates_found">Обновлений не найдено</string>
   <string name="update_check_failed">Не удалось выполнить поиск обновлений. Проверьте подключение к Интернету и повторите попытку.</string>
   <string name="not_new_updates_found_ticker">Доступно обновление системы</string>
-  <string name="not_new_updates_found_title">Обновления CyanogenMod</string>
+  <string name="not_new_updates_found_title">Обновления SlimLP</string>
   <string name="not_action_download">Загрузить</string>
   <string name="data_connection_required">Необходимо интернет-подключение</string>
   <string name="confirm_download_cancelation_dialog_title">Отменить загрузку</string>
