@@ -59,7 +59,7 @@ public class Utils {
     }
 
     public static String getInstalledVersion() {
-        return SystemProperties.get("ro.slim.version");
+        return SystemProperties.get("ro.modversion");
     }
 
     public static int getInstalledApiLevel() {
@@ -85,8 +85,8 @@ public class Utils {
     }
 
     public static boolean isOnline(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        ConnectivityManager slim = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = slim.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
             return true;
         }

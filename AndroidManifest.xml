@@ -51,7 +51,7 @@
         <receiver android:name="com.slimlp.updater.receiver.DownloadReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-                <action android:name="com.slimlp.updater.action.START_DOWNLOAD"/>
+                <action android:name="com.slimlp.slimupdater.action.START_DOWNLOAD"/>
             </intent-filter>
         </receiver>
 
