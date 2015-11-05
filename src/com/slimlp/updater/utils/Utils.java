@@ -155,7 +155,7 @@ public class Utils {
         int updateType = Constants.UPDATE_TYPE_NIGHTLY;
         try {
             String slimReleaseType = SystemProperties.get(
-                    Constants.PROPERTY_CM_RELEASETYPE);
+                    Constants.PROPERTY_SLIM_RELEASETYPE);
 
             // Treat anything that is not SNAPSHOT as NIGHTLY
             if (!slimReleaseType.isEmpty()) {
